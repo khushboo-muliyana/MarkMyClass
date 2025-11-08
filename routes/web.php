@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\TeacherController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,8 @@ Route::middleware(['auth', 'admin'])
 
         // Students CRUD
         Route::resource('students', StudentController::class)->except(['show']);
+          // Teachers CRUD
+        Route::resource('teachers', TeacherController::class)->except(['show']);
     });
 
 Route::middleware(['auth', 'teacher'])->group(function () {

@@ -13,4 +13,11 @@
         <span>Students</span>
     </a>
 </li>
-    
+
+<li class="nav-item">
+    <a href="{{ route('admin.teachers.index') }}" 
+       class="nav-link {{ request()->routeIs('admin.teachers.*') ? 'active' : '' }}">
+        <i class="bi bi-person-badge"></i>
+        <span>Teachers</span>
+    </a>
+</li>
