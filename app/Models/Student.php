@@ -36,4 +36,10 @@ class Student extends Model
         // alias to pivot table if you use many-to-many
         return $this->belongsToMany(Classroom::class, 'class_student');
     }
+
+    public function attendances()
+{
+    return $this->hasMany(Attendance::class);
+}
+
 }

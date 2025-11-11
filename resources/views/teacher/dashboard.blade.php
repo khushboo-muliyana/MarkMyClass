@@ -3,31 +3,9 @@
 @section('title', 'Teacher Dashboard')
 
 @section('sidebar-menu')
-    <a href="{{ route('teacher.dashboard') }}" class="nav-link active">
-        <i class="bi bi-speedometer2"></i>
-        <span>Dashboard</span>
-    </a>
-    <a href="#" class="nav-link">
-        <i class="bi bi-calendar-check"></i>
-        <span>Mark Attendance</span>
-    </a>
-    <a href="#" class="nav-link">
-        <i class="bi bi-people"></i>
-        <span>My Students</span>
-    </a>
-    <a href="#" class="nav-link">
-        <i class="bi bi-clock-history"></i>
-        <span>Attendance History</span>
-    </a>
-    <a href="#" class="nav-link">
-        <i class="bi bi-book"></i>
-        <span>My Classes</span>
-    </a>
-    <a href="#" class="nav-link">
-        <i class="bi bi-file-earmark-text"></i>
-        <span>Reports</span>
-    </a>
+    @include('teacher._sidebar')
 @endsection
+
 
 @section('content')
     <!-- Welcome Section -->
@@ -52,7 +30,7 @@
                 <div class="stats-icon">
                     <i class="bi bi-people"></i>
                 </div>
-                <div class="stats-value">32</div>
+                <div class="stats-value">{{ $totalStudents ?? 0 }}</div>
                 <p class="stats-label">Total Students</p>
                 <small class="text-muted">
                     <i class="bi bi-check-circle text-success"></i> All enrolled
@@ -65,7 +43,7 @@
                 <div class="stats-icon">
                     <i class="bi bi-check-circle"></i>
                 </div>
-                <div class="stats-value">30</div>
+                <div class="stats-value">{{ $todayAttendance ?? 0 }}</div>
                 <p class="stats-label">Present Today</p>
                 <small class="text-muted">
                     <i class="bi bi-clock"></i> As of now
