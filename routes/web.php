@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Admin\UserController;
 
 use App\Http\Controllers\Teacher\TeacherDashboardController;
 use App\Http\Controllers\Teacher\AttendanceController;
@@ -38,6 +39,8 @@ Route::middleware(['auth', 'admin'])
         Route::resource('students', StudentController::class)->except(['show']);
           // Teachers CRUD
         Route::resource('teachers', TeacherController::class)->except(['show']);
+        // Users management
+        Route::resource('users', UserController::class)->only(['index','edit','update']);
     });
 Route::middleware(['auth', 'teacher'])->prefix('teacher')->name('teacher.')->group(function() {
     
